@@ -20,11 +20,12 @@ def quiz():
         total += 1
         if inp in answer:
             streak += 1
+            correct += 1
             print(f"Correct!\nScore: {correct}\nStreak: {streak}")
         else:
             max_streak = max(max_streak, streak)
             streak = 0
             print(f"Incorrect!\nScore: {correct}\nStreak: {streak}\nCorrect answer was: {', '.join(answer)}")
-    print(f"Final Score: {correct}\nPercent Correct: {correct/total}\nHighest streak: {max_streak}")
+    print(f"Final Score: {correct}\nPercent Correct: {correct/total*100:.2f}\nHighest streak: {max_streak}")
 
 quiz()
