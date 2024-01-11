@@ -10,7 +10,7 @@ A little project to help me learns the fixed prepositions for certain words in G
 
 ### List
 🟨 Add menu to control various actions.\
-🟥 Add functionality to change wordset to high importance, only akkusativ, only dativ, or custom.\
+🟨 Add functionality to change wordset to high importance, only akkusativ, only dativ, or custom.\
 🟨 Add quiz for testing the case (Akkusativ / Dativ)\
 🟥 Add words from Beste Freunde.\
 🟥 Add page 79 (Get Ready) words (Words that were not included on page 78)
