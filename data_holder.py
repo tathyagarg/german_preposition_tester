@@ -14,6 +14,20 @@ class Preposition:
         for prep in cls.PREPOSITIONS:
             if word in prep.words: return prep.prep
         return -1
+    
+    @classmethod
+    def simple_query(cls, word):
+        word = Preposition.query(word)
+        if word == 'über': return 'uber'
+        if word == 'für': return 'fur'
+        return word
+    
+    @classmethod
+    def all_query(cls, word):
+        a = Preposition.query(word)
+        if a == -1: return a
+        b = Preposition.simple_query(word)
+        return list(set([a, b]))
 
 
 an = Preposition(
@@ -69,4 +83,5 @@ zu = Preposition(
 )
 
 DUPLICATES = {'diskutieren': ('mit', 'über'), 'reden': ('mit', 'über'), 'sich freuen': ('auf', 'über'), 'sich unterhalten': ('mit', 'über'), 'sprechen': ('mit', 'über'), 'verhandeln': ('mit', 'über'), 'sich beschweren': ('über', 'bei'), 'sich bedanken': ('bei', 'für'), 'sich entschuldigen': ('bei', 'für'), 'sich streiten': ('mit', 'um'), 'erzählen': ('über', 'von')}
+SIMPLIFIED_DUPLICATES = {'diskutieren': ('mit', 'uber'), 'reden': ('mit', 'uber'), 'sich freuen': ('auf', 'uber'), 'sich unterhalten': ('mit', 'uber'), 'sprechen': ('mit', 'uber'), 'verhandeln': ('mit', 'uber'), 'sich beschweren': ('uber', 'bei'), 'sich bedanken': ('bei', 'fur'), 'sich entschuldigen': ('bei', 'fur'), 'sich streiten': ('mit', 'um'), 'erzählen': ('uber', 'von')}
 WORDS = ['aufpassen', 'beneiden', 'schimpfen', 'erfahren', 'bitten', 'sich informieren', 'sich entschuldigen', 'suchen', 'kaufen', 'eignen', 'führen', 'sich interessieren', 'streiten', 'verfüngen', 'sich aufregen', 'protestieren', 'rechnen', 'sich richten', 'kämpfen', 'sich verabreden', 'fragen', 'sich verabschieden', 'sorgen', 'fahren', 'meinen', 'es geht', 'sich freuen', 'sich unterhalten', 'telefonieren', 'riechen', 'sich konzenteiren', 'warten', 'verhandeln', 'leiden', 'aufhören', 'gehören', 'gratulieren', 'vergleichen', 'sich verstehen', 'sich streiten', 'sich handeln', 'hören', 'schreiben', 'arbeiten', 'ankommen', 'träumen', 'sich wenden', 'sprechen', 'helfen', 'antworten', 'sich erinnern', 'diskutieren', 'sich erholen', 'umgehen', 'sich gewöhnen', 'sich engagieren', 'hoffen', 'teilnehmen', 'sterben', 'sich bedanken', 'passen', 'sich beschweren', 'achten', 'sich ärgern', 'erzählen', 'sich wundern', 'schmecken', 'verzichten', 'sich vorbereiten', 'einladen', 'anfangen', 'beginnen', 'wohnen', 'sich bewerben', 'sich beschäftigen', 'danken', 'stören', 'glauben', 'sich kümmern', 'abhängen', 'ausgeben', 'nachdenken', 'denken', 'reden', 'sich treffen', 'sich beziehen']
