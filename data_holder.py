@@ -48,7 +48,7 @@ mit = Preposition(
 )
 uber = Preposition(
     'über',
-    ['diskutieren', 'erzählen', 'nachdenken', 'reden', 'schimpfen', 'sich ärgern', 'sich aufregen', 'sich beschweren', 'sich freuen', 'sich informieren', 'sich unterhalten', 'sich wundern', 'sprechen', 'streiten', 'verfüngen', 'verhandeln'],
+    ['diskutieren', 'erzählen', 'nachdenken', 'reden', 'schimpfen', 'sich ärgern', 'sich aufregen', 'sich beschweren', 'sich freuen', 'sich informieren', 'sich unterhalten', 'sich wundern', 'sprechen', 'streiten', 'verfüngen', 'verhandeln', 'lachen'],
     True
 )
 bei = Preposition(
@@ -63,17 +63,17 @@ nach = Preposition(
 )
 fur = Preposition(
     'für',
-    ['ausgeben', 'danken', 'eignen', 'kämpfen', 'kaufen', 'protestieren', 'sich bedanken', 'sich engagieren', 'sich entschuldigen', 'sich interessieren', 'sorgen'],
+    ['ausgeben', 'danken', 'eignen', 'kämpfen', 'kaufen', 'protestieren', 'sich bedanken', 'sich engagieren', 'sich entschuldigen', 'sich interessieren', 'sorgen', 'sein'],
     True
 )
 um = Preposition(
     'um',
-    ['beneiden', 'bitten', 'es geht', 'sich bewerben', 'sich handeln', 'sich kümmern', 'sich streiten'],
+    ['beneiden', 'bitten', 'es geht', 'sich bewerben', 'sich handeln', 'sich kümmern', 'sich streiten', 'gehen'],
     True
 )
 von = Preposition(
     'von',
-    ['abhängen', 'erfahren', 'sich erholen', 'erzählen', 'hören', 'träumen', 'sich verabschieden'],
+    ['abhängen', 'erfahren', 'sich erholen', 'erzählen', 'hören', 'träumen', 'sich verabschieden', 'wissen'],
     False
 )
 zu = Preposition(
@@ -81,7 +81,15 @@ zu = Preposition(
     ['einladen', 'führen', 'gehören', 'gratulieren', 'meinen', 'passen'],
     False
 )
+aus = Preposition('aus', ['bestehen'], False)
+als = Preposition('als', ['gelten'], False)
+gegen = Preposition('gegen', ['protestieren', 'sein'], True)
 
-DUPLICATES = {'diskutieren': ('mit', 'über'), 'reden': ('mit', 'über'), 'sich freuen': ('auf', 'über'), 'sich unterhalten': ('mit', 'über'), 'sprechen': ('mit', 'über'), 'verhandeln': ('mit', 'über'), 'sich beschweren': ('über', 'bei'), 'sich bedanken': ('bei', 'für'), 'sich entschuldigen': ('bei', 'für'), 'sich streiten': ('mit', 'um'), 'erzählen': ('über', 'von')}
-SIMPLIFIED_DUPLICATES = {'diskutieren': ('mit', 'uber'), 'reden': ('mit', 'uber'), 'sich freuen': ('auf', 'uber'), 'sich unterhalten': ('mit', 'uber'), 'sprechen': ('mit', 'uber'), 'verhandeln': ('mit', 'uber'), 'sich beschweren': ('uber', 'bei'), 'sich bedanken': ('bei', 'fur'), 'sich entschuldigen': ('bei', 'fur'), 'sich streiten': ('mit', 'um'), 'erzählen': ('uber', 'von')}
+DUPLICATES = {'diskutieren': ('mit', 'über'), 'reden': ('mit', 'über'), 'sich freuen': ('auf', 'über'), 'sich unterhalten': ('mit', 'über'), 'sprechen': ('mit', 'über'), 'verhandeln': ('mit', 'über'), 'sich beschweren': ('über', 'bei'), 'sich bedanken': ('bei', 'für'), 'sich entschuldigen': ('bei', 'für'), 'sich streiten': ('mit', 'um'), 'erzählen': ('über', 'von'), 'protestieren': ['für', 'gegen'], 'sein': ['für', 'gegen']}
+SIMPLIFIED_DUPLICATES = {'diskutieren': ('mit', 'uber'), 'reden': ('mit', 'uber'), 'sich freuen': ('auf', 'uber'), 'sich unterhalten': ('mit', 'uber'), 'sprechen': ('mit', 'uber'), 'verhandeln': ('mit', 'uber'), 'sich beschweren': ('uber', 'bei'), 'sich bedanken': ('bei', 'fur'), 'sich entschuldigen': ('bei', 'fur'), 'sich streiten': ('mit', 'um'), 'erzählen': ('uber', 'von'), 'protestieren': ['fur', 'gegen'], 'sein': ['fur', 'gegen']}
 WORDS = ['aufpassen', 'beneiden', 'schimpfen', 'erfahren', 'bitten', 'sich informieren', 'sich entschuldigen', 'suchen', 'kaufen', 'eignen', 'führen', 'sich interessieren', 'streiten', 'verfüngen', 'sich aufregen', 'protestieren', 'rechnen', 'sich richten', 'kämpfen', 'sich verabreden', 'fragen', 'sich verabschieden', 'sorgen', 'fahren', 'meinen', 'es geht', 'sich freuen', 'sich unterhalten', 'telefonieren', 'riechen', 'sich konzenteiren', 'warten', 'verhandeln', 'leiden', 'aufhören', 'gehören', 'gratulieren', 'vergleichen', 'sich verstehen', 'sich streiten', 'sich handeln', 'hören', 'schreiben', 'arbeiten', 'ankommen', 'träumen', 'sich wenden', 'sprechen', 'helfen', 'antworten', 'sich erinnern', 'diskutieren', 'sich erholen', 'umgehen', 'sich gewöhnen', 'sich engagieren', 'hoffen', 'teilnehmen', 'sterben', 'sich bedanken', 'passen', 'sich beschweren', 'achten', 'sich ärgern', 'erzählen', 'sich wundern', 'schmecken', 'verzichten', 'sich vorbereiten', 'einladen', 'anfangen', 'beginnen', 'wohnen', 'sich bewerben', 'sich beschäftigen', 'danken', 'stören', 'glauben', 'sich kümmern', 'abhängen', 'ausgeben', 'nachdenken', 'denken', 'reden', 'sich treffen', 'sich beziehen']
+BESTE_FREUNDE = ['anfangen', 'antworten', 'sich ärgern', 'aufhören', 'aufpassen', 'sich aufregen', 'ausgeben', 'sich bedanken', 'beneiden', 'bitten', 'danken', 'denken', 'einladen', 'sich entschuldigen', 'erfahren', 'sich erholen', 'sich erinnern', 'fragen', 'sich freuen', 'gehören', 'glauben', 'helfen', 'sich interessiern', 'sich kümmern', 'reden', 'schreiben', 'sprechen', 'streiten', 'suchen', 'teilnehmen', 'verzichten', 'warten']
+ALL_BESTE_FREUNDE = BESTE_FREUNDE + ['beschäftigen', 'bestehen', 'sich eignen', 'erzählen', 'gehen', 'gelten', 'gratulieren', 'hoffen', 'hören', 'sich informieren', 'lachen', 'passen', 'protestieren', 'schimpfen', 'schmecken', 'sein', 'sterben', 'streiten', 'telefonieren', 'sich treffen', 'sich unterhalten', 'sich verabreden', 'verstehen', 'wissen']
+
+ALL_WORDS = list(set(WORDS + ALL_BESTE_FREUNDE))
+

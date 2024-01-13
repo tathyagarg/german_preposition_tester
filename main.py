@@ -62,10 +62,10 @@ class Quiz:
     def add(self, attr, amt):
         return self.set(attr, getattr(self, attr) + amt)
 
-def regular_quiz():
+def quiz(word_list: list[str]):
     me = Quiz.instance.default_finish_init()
     while True:
-        word = random.choice(WORDS)
+        word = random.choice(word_list)
         if word in DUPLICATES: answer = DUPLICATES[word] + SIMPLIFIED_DUPLICATES[word]
         else: 
             if (answer := Preposition.all_query(word)) == -1:
@@ -83,8 +83,11 @@ def regular_quiz():
         return
     me.set("send", f"\nPercentage: {me.correct/me.total*100:.2f}%").run_finish()
 
-def case_quiz():
+
+def cases():
     me = Quiz.instance.default_finish_init()
+    preposition_list = Preposition.PREPOSITIONS
+    preposition_list.remove(Preposition.fetch('als'))
     while True:
         prep = random.choice(Preposition.PREPOSITIONS)
         word = prep.prep
@@ -102,7 +105,7 @@ def case_quiz():
 
 
 def main():
-    functions = {'Regular Quiz': regular_quiz, 'Case Quiz': case_quiz, 'Quit': quit}
+    functions = {'Get Ready words only': lambda: quiz(WORDS), 'All Words': lambda: quiz(ALL_WORDS), 'Preposition Cases': cases, 'Quit': quit}
     while True:
         print("="*30)
         print("Choose quiz")
